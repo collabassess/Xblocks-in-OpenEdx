@@ -11,6 +11,7 @@ Make sure you have xblock sdk installed in the directory ( installation process:
 4. python xblock-sdk/manage.py migrate
 5. python xblock-sdk/manage.py runserver
     
+opens xblock on http://127.0.0.1:8000/
 
   
   
