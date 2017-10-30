@@ -1,0 +1,9 @@
+/* CSS for TogetherJsXBlock */
+
+.togetherjsxblock_block .count {
+    font-weight: bold;
+}
+
+.togetherjsxblock_block p {
+    cursor: pointer;
+}

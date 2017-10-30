@@ -1,0 +1,12 @@
+togetherjsxblock/__init__.py
+togetherjsxblock/togetherjsxblock.py
+togetherjsxblock/static/README.txt
+togetherjsxblock/static/css/togetherjsxblock.css
+togetherjsxblock/static/html/togetherjsxblock.html
+togetherjsxblock/static/js/src/togetherjsxblock.js
+togetherjsxblock_xblock.egg-info/PKG-INFO
+togetherjsxblock_xblock.egg-info/SOURCES.txt
+togetherjsxblock_xblock.egg-info/dependency_links.txt
+togetherjsxblock_xblock.egg-info/entry_points.txt
+togetherjsxblock_xblock.egg-info/requires.txt
+togetherjsxblock_xblock.egg-info/top_level.txt
