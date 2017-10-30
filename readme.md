@@ -1,3 +1,12 @@
+## Xblocks 
+ref: http://edx.readthedocs.io/projects/xblock-tutorial/en/latest/overview/introduction.html
+<p>The XBlock specification is a component architecture designed to make it easier to create new online educational experiences. XBlock was developed by edX, which has a focus in education, but the technology can be used in web applications that need to use multiple independent components and display those components on a single web page.
+
+An XBlock developer does not need to download and run the entire edx-platform developer stack or to know anything about the technologies that edX uses to provide the XBlock runtime. Instead, XBlock developers writing with edX in mind can work from the xblock-sdk and deploy their work on any platform that is compatible with XBlocks.
+
+In educational applications, XBlocks can be used to represent individual problems, web-formatted text and videos, interactive simulations and labs, or collaborative learning experiences. Furthermore, XBlocks are composable, allowing an XBlock developer to control the display of other XBlocks to compose lessons, sections, and entire courses.
+
+
 ## Step by step commandline instructions
 <ul>
 
