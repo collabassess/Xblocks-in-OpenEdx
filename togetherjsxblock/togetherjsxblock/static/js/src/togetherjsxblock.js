@@ -1,22 +1,34 @@
 /* Javascript for TogetherJsXBlock. */
 function TogetherJsXBlock(runtime, element) {
 
-    function updateCount(result) {
-        $('.count', element).text(result.count);
+    function updateRoom(result) {
+        $('.room', element).text(result.room);
     }
 
-    var handlerUrl = runtime.handlerUrl(element, 'increment_count');
 
-    $('p', element).click(function(eventObject) {
+
+    $('#collaborate').click(function(){
+        TogetherJS();
+    });
+
+
+    $(function ($) {
+
+        TogetherJSConfig_findRoom = {prefix: "togetherjsmadlibs", max: 2};
+        TogetherJSConfig_disableWebRTC = true;
+        TogetherJSConfig_suppressInvite = true;
+        TogetherJSConfig_suppressJoinConfirmation =true;
+        TogetherJS.config("getUserName", function () {
+              return 'Ajay';
+            });
+
+        var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
+
         $.ajax({
             type: "POST",
             url: handlerUrl,
             data: JSON.stringify({"hello": "world"}),
-            success: updateCount
+            success: updateRoom
         });
-    });
-
-    $(function ($) {
-        /* Here's where you'd do things on page load. */
     });
 }

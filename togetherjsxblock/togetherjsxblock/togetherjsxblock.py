@@ -2,7 +2,7 @@
 
 import pkg_resources
 from xblock.core import XBlock
-from xblock.fields import Integer, Scope
+from xblock.fields import Integer, Scope,String
 from xblock.fragment import Fragment
 
 
@@ -15,10 +15,11 @@ class TogetherJsXBlock(XBlock):
     # self.<fieldname>.
 
     # TO-DO: delete count, and define your own fields.
-    count = Integer(
-        default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
+    room = Integer(
+        default=0, scope=Scope.user_state_summary,
+        help="A chat room number",
     )
+    s_name = String(default=None, scope=Scope.user_state, help="user name")
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -34,6 +35,7 @@ class TogetherJsXBlock(XBlock):
         html = self.resource_string("static/html/togetherjsxblock.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/togetherjsxblock.css"))
+        frag.add_javascript(self.resource_string("static/js/togetherjs-min.js"))
         frag.add_javascript(self.resource_string("static/js/src/togetherjsxblock.js"))
         frag.initialize_js('TogetherJsXBlock')
         return frag
@@ -41,15 +43,15 @@ class TogetherJsXBlock(XBlock):
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
     @XBlock.json_handler
-    def increment_count(self, data, suffix=''):
+    def returnRoom(self, data, suffix=''):
         """
         An example handler, which increments the data.
         """
         # Just to show data coming in...
         assert data['hello'] == 'world'
 
-        self.count += 1
-        return {"count": self.count}
+        self.room = 59
+        return {"room": self.room}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
