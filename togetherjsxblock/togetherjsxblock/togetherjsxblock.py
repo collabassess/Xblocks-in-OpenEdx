@@ -12,19 +12,17 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
     """
-    color = String(default="red")
-    count = Integer(default=42)
-    comment = String(default="")
-    date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
-    editable_fields = ('color', 'count', 'comment', 'date')
-    # Fields are defined on the class.  You can access them in your code as
-    # self.<fieldname>.
-
-    # TO-DO: delete count, and define your own fields.
+    
     room = Integer(
         default=0, scope=Scope.user_state_summary,
         help="A chat room number",
     )
+    editable_fields = ('room')
+    # Fields are defined on the class.  You can access them in your code as
+    # self.<fieldname>.
+
+    # TO-DO: delete count, and define your own fields.
+
     s_name = String(default=None, scope=Scope.user_state, help="user name")
 
     def resource_string(self, path):
@@ -57,7 +55,8 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         # Just to show data coming in...
         assert data['hello'] == 'world'
 
-        self.room = 59
+        if(self.room == 0):
+            self.room = 59
         return {"room": self.room}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
