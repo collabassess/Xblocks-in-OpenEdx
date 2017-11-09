@@ -17,7 +17,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     comment = String(default="")
     date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
     room = String(
-        default=0, scope=Scope.settings,
+        default="roomdefault", scope=Scope.settings,
         help="A chat room number",
     )
     editable_fields = ('color', 'count', 'comment', 'date', 'room')
@@ -57,9 +57,6 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         # Just to show data coming in...
         assert data['hello'] == 'world'
-
-        if(self.room == 0):
-            self.room = 123
         return {"room": self.room}
 
     # TO-DO: change this to create the scenarios you'd like to see in the

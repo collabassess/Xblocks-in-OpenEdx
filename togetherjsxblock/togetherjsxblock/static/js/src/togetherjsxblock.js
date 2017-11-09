@@ -3,7 +3,7 @@ function TogetherJsXBlock(runtime, element) {
 
     function updateRoom(result) {
         $('.room', element).text(result.room);
-        TogetherJSConfig_findRoom = {prefix:result.room+"" , max: 2};
+        TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
     }
 
 
