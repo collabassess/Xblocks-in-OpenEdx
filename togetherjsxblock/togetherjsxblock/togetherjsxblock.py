@@ -17,7 +17,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     comment = String(default="")
     date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
     room = Integer(
-        default=0, scope=Scope.user_state_summary,
+        default=0, scope=Scope.settings,
         help="A chat room number",
     )
     editable_fields = ('color', 'count', 'comment', 'date', 'room')
