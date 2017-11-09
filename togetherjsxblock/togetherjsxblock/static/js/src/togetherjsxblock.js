@@ -3,6 +3,7 @@ function TogetherJsXBlock(runtime, element) {
 
     function updateRoom(result) {
         $('.room', element).text(result.room);
+        TogetherJSConfig_findRoom = {prefix:result.room+"" , max: 2};
     }
 
 
@@ -14,13 +15,22 @@ function TogetherJsXBlock(runtime, element) {
 
     $(function ($) {
 
-        TogetherJSConfig_findRoom = {prefix: "together", max: 2};
-        TogetherJSConfig_disableWebRTC = true;
-        TogetherJSConfig_suppressInvite = true;
-        TogetherJSConfig_suppressJoinConfirmation =true;
+        TogetherJS.config("disableWebRTC", function () {
+              return true;
+            });
+        TogetherJS.config("suppressInvite", function () {
+          return true;
+        });
+        TogetherJS.config("suppressJoinConfirmation", function () {
+          return true;
+        });
         TogetherJS.config("getUserName", function () {
               return 'Ajay';
             });
+
+        TogetherJS.config("dontShowClicks",function(){
+            return true;
+        });
 
         var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
 
