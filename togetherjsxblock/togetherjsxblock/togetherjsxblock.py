@@ -12,12 +12,15 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
     """
-    
+    color = String(default="red")
+    count = Integer(default=42)
+    comment = String(default="")
+    date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
     room = Integer(
         default=0, scope=Scope.user_state_summary,
         help="A chat room number",
     )
-    editable_fields = ('room')
+    editable_fields = ('color', 'count', 'comment', 'date', 'room')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
