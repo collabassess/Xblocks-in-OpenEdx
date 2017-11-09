@@ -16,7 +16,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     count = Integer(default=42)
     comment = String(default="")
     date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
-    room = Integer(
+    room = String(
         default=0, scope=Scope.settings,
         help="A chat room number",
     )
@@ -59,7 +59,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         assert data['hello'] == 'world'
 
         if(self.room == 0):
-            self.room = 59
+            self.room = 123
         return {"room": self.room}
 
     # TO-DO: change this to create the scenarios you'd like to see in the
