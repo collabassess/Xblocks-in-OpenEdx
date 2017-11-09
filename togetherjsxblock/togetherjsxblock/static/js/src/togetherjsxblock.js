@@ -14,7 +14,7 @@ function TogetherJsXBlock(runtime, element) {
 
     $(function ($) {
 
-        TogetherJSConfig_findRoom = {prefix: "togetherjsmadlibs", max: 2};
+        TogetherJSConfig_findRoom = {prefix: "together", max: 2};
         TogetherJSConfig_disableWebRTC = true;
         TogetherJSConfig_suppressInvite = true;
         TogetherJSConfig_suppressJoinConfirmation =true;

@@ -1,16 +1,22 @@
 """TO-DO: Write a description of what this XBlock is."""
-
+import datetime
+import pytz
 import pkg_resources
 from xblock.core import XBlock
-from xblock.fields import Integer, Scope,String
+from xblock.fields import Integer, Scope,String, DateTime
 from xblock.fragment import Fragment
+from xblockutils.studio_editable import StudioEditableXBlockMixin
 
-
-class TogetherJsXBlock(XBlock):
+@XBlock.needs("i18n")
+class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
     """
-
+    color = String(default="red")
+    count = Integer(default=42)
+    comment = String(default="")
+    date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
+    editable_fields = ('color', 'count', 'comment', 'date')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
@@ -39,6 +45,7 @@ class TogetherJsXBlock(XBlock):
         frag.add_javascript(self.resource_string("static/js/src/togetherjsxblock.js"))
         frag.initialize_js('TogetherJsXBlock')
         return frag
+
 
     # TO-DO: change this handler to perform your own actions.  You may need more
     # than one handler, or you may not need any handlers at all.
