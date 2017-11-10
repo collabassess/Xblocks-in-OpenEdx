@@ -13,6 +13,7 @@ sudo -u edxapp /edx/bin/pip.edxapp install location/of/xblock/with/setup.py/file
 > e.g:
 <pre>
 cd /edx/app/edxapp/
+sudo git clone git+https://github.com/collabassess/Xblocks-in-OpenEdx.git
 sudo -u edxapp /edx/bin/pip.edxapp install Xblocks-in-OpenEdx/togetherjsxblock --upgrade --no-deps
 </pre>
 
