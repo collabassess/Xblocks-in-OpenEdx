@@ -8,28 +8,28 @@ In educational applications, XBlocks can be used to represent individual problem
 
 
 ## Step by step commandline instructions
-<ul>
 
-<li>  cd working-directory/ </li>
-<li> sudo mkdir xblock_development
-<li> cd xblock_development/
-<li> sudo virtualenv venv
-<li> source venv/bin/activate
-<li> sudo git clone https://github.com/edx/xblock-sdk.git
-<li> cd xblock-sdk/
-<li> sudo pip install -r requirements/base.txt
-<li> cd -
-<li> sudo xblock-sdk/bin/workbench-make-xblock
-<li> sudo pip install -e myxblock
-<li> sudo mkdir var/
-<li> sudo touch var/workbench.log
-<li> sudo python xblock-sdk/manage.py migrate
-<li> sudo mkdir xblock-sdk/workbench/migrations
-<li> sudo vi xblock-sdk/workbench/migrations/initial.py (Note: content of initial.py is attached)
-<li> sudo python xblock-sdk/manage.py makemigrations workbench
-<li> sudo python xblock-sdk/manage.py migrate
-<li> sudo python xblock-sdk/manage.py runserver
-</ul>
+<pre>
+cd working-directory/ </li>
+sudo mkdir xblock_development
+cd xblock_development/
+sudo virtualenv venv
+source venv/bin/activate
+sudo git clone https://github.com/edx/xblock-sdk.git
+cd xblock-sdk/
+sudo pip install -r requirements/base.txt
+cd -
+sudo xblock-sdk/bin/workbench-make-xblock
+sudo pip install -e myxblock
+sudo mkdir var/
+sudo touch var/workbench.log
+sudo python xblock-sdk/manage.py migrate
+sudo mkdir xblock-sdk/workbench/migrations
+sudo vi xblock-sdk/workbench/migrations/initial.py (Note: content of initial.py is attached)
+sudo python xblock-sdk/manage.py makemigrations workbench
+sudo python xblock-sdk/manage.py migrate
+sudo python xblock-sdk/manage.py runserver
+</pre>
 
 ## code for initial.py:
 <pre>
