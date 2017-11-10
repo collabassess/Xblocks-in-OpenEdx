@@ -12,21 +12,20 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
     """
-    color = String(default="red")
-    count = Integer(default=42)
-    comment = String(default="")
-    date = DateTime(default=datetime.datetime(2014, 5, 14, tzinfo=pytz.UTC))
+
+
     room = String(
         default="roomdefault", scope=Scope.settings,
         help="A chat room number",
     )
-    editable_fields = ('color', 'count', 'comment', 'date', 'room')
+    s_name = String(default="a", scope=Scope.user_state, help="user name")
+
+    editable_fields = ('room')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
     # TO-DO: delete count, and define your own fields.
 
-    s_name = String(default=None, scope=Scope.user_state, help="user name")
 
     def resource_string(self, path):
         """Handy helper for getting resources from our kit."""
@@ -55,9 +54,27 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         An example handler, which increments the data.
         """
+        user_service = self.runtime.service(self, 'user')
+        xb_user = user_service.get_current_user()
+        self.s_name = xb_user.full_name
         # Just to show data coming in...
-        assert data['hello'] == 'world'
-        return {"room": self.room}
+        if(data['hello'] == 'world'):
+            return {"room": self.room}
+        else:
+            return {"s_name": self.s_name}
+
+    # @XBlock.json_handler
+    # def returnUserName(self, data, suffix=''):
+    #     """
+    #     return current user data
+    #     """
+    #     user_service = self.runtime.service(self, 'user')
+    #     xb_user = user_service.get_current_user()
+    #     self.s_name = xb_user.full_name
+    #     if(self.s_name == "a"):
+    #         self.s_name = "b"
+    #     return {"s_name":self.s_name}
+
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
