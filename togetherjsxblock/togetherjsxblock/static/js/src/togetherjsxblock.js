@@ -38,7 +38,7 @@ function TogetherJsXBlock(runtime, element) {
         });
 
         var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
-        var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
+        //var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
 
         $.ajax({
             type: "POST",
@@ -47,12 +47,12 @@ function TogetherJsXBlock(runtime, element) {
             success: updateRoom
         });
 
-        $.ajax({
-            type: "POST",
-            url: handlerUrl,
-            data: JSON.stringify({"hello": "world1"}),
-            success: updateUserName
-        });
+//        $.ajax({
+//            type: "POST",
+//            url: handlerUrl,
+//            data: JSON.stringify({"hello": "world1"}),
+//            success: updateUserName
+//        });
 
     });
 }

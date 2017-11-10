@@ -55,9 +55,9 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         An example handler, which increments the data.
         """
-        user_service = self.runtime.service(self, 'user')
-        xb_user = user_service.get_current_user()
-        self.s_name = xb_user.full_name
+        # user_service = self.runtime.service(self, 'user')
+        # xb_user = user_service.get_current_user()
+        # self.s_name = xb_user.full_name
         # Just to show data coming in...
         if(data['hello'] == 'world'):
             return {"room": self.room}
