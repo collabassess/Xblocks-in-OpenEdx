@@ -31,7 +31,7 @@ function TogetherJsXBlock(runtime, element) {
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
-
+        TogetherJSConfig_hubBase = "https://calm-escarpment-25279.herokuapp.com/";
 
         TogetherJS.config("dontShowClicks",function(){
             return true;
