@@ -13,6 +13,7 @@ function TogetherJsXBlock(runtime, element, data) {
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
+        TogetherJS.reinitialize();
     }
 
 
