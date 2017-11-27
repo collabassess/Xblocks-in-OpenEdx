@@ -41,9 +41,9 @@ function TogetherJsXBlock(runtime, element, data) {
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
-
+        TogetherJSConfig_cloneClicks = "button.submit";
         TogetherJS.config("cloneClicks", function () {
-          return ".submit";
+          return "button.submit";
         });
 
         TogetherJS.config("includeHashInUrl", function () {
