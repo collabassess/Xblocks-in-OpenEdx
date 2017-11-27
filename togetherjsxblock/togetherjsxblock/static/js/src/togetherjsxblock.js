@@ -9,16 +9,36 @@ function TogetherJsXBlock(runtime, element, data) {
 
     function updateUserName(result) {
         TogetherJSConfig_getUserName = result.s_name;
-        alert(result.s_name+" it works");
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
-        TogetherJS.reinitialize();
+        if(TogetherJS.running)
+        {
+            alert(result.s_name+" it works");
+            TogetherJS.reinitialize();
+        }
     }
 
 
     $('#collaborate').click(function(){
-        TogetherJS();
+           TogetherJS();
+           var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
+            $.ajax({
+                type: "POST",
+                url: handlerStudentUrl,
+                data: JSON.stringify({"hello": "world1"}),
+                success: updateUserName,
+                error: function (request, status, error) {
+                    alert(error);
+                    alert(status);
+                    alert(request.responseText);
+                }
+            });
+
+    });
+
+    $("#check").click(function(){
+        alert(TogetherJS.running);
     });
 
 
@@ -50,28 +70,12 @@ function TogetherJsXBlock(runtime, element, data) {
         });
 
         var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
-        //var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
-
         $.ajax({
             type: "POST",
             url: handlerUrl,
             data: JSON.stringify({"hello": "world"}),
             success: updateRoom
         });
-
-        $.ajax({
-            type: "POST",
-            url: handlerUrl,
-            data: JSON.stringify({"hello": "world1"}),
-            success: updateUserName,
-            error: function (request, status, error) {
-                alert(error);
-                alert(status);
-                alert(request.responseText);
-            }
-        });
-
-
 
     });
 
