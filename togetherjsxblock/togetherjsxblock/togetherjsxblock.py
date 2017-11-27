@@ -96,7 +96,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         user_service = self.runtime.service(self, 'user')
         xb_user = user_service.get_current_user()
-        self.s_name = xb_user.full_name
+        self.s_name = xb_user.emails
         return {"s_name": self.s_name}
 
     # @XBlock.json_handler
