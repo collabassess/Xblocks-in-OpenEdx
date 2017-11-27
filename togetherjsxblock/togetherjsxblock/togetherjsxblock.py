@@ -16,8 +16,7 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 
 
 @XBlock.needs("i18n")
-@XBlock.wants('user')
-# @XBlock.needs('fs')
+@XBlock.needs('user')
 class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
@@ -63,6 +62,9 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         # votes = json.load(self.fs.open(u"custom.json"))
         # self.upvotes = votes['up']
         # self.downvotes = votes['down']
+        user_service = self.runtime.service(self, 'user')
+        xb_user = user_service.get_current_user()
+        self.s_name = xb_user.full_name
 
         html = self.resource_string("static/html/togetherjsxblock.html")
         frag = Fragment(html.format(self=self))
@@ -94,9 +96,6 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
            a handler which returns user name.
         """
-        user_service = self.runtime.service(self, 'user')
-        xb_user = user_service.get_current_user()
-        self.s_name = xb_user.emails
         return {"s_name": self.s_name}
 
     # @XBlock.json_handler

@@ -9,13 +9,13 @@ function TogetherJsXBlock(runtime, element, data) {
 
     function updateUserName(result) {
         TogetherJS.config("getUserName", function () {
-          return result.s_name[0];
+          return result.s_name;
         });
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
 
-        alert(result.s_name[0]+" it works");
+        alert(result.s_name+" it works");
         //TogetherJS();
     }
 
