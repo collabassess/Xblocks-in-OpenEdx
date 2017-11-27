@@ -65,6 +65,8 @@ function TogetherJsXBlock(runtime, element, data) {
             data: JSON.stringify({"hello": "world1"}),
             success: updateUserName,
             error: function (request, status, error) {
+                alert(error);
+                alert(status);
                 alert(request.responseText);
             }
         });
