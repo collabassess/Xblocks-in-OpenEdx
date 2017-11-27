@@ -22,19 +22,6 @@ function TogetherJsXBlock(runtime, element, data) {
 
     $('#collaborate').click(function(){
            TogetherJS();
-           var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
-            $.ajax({
-                type: "POST",
-                url: handlerStudentUrl,
-                data: JSON.stringify({"hello": "world1"}),
-                success: updateUserName,
-                error: function (request, status, error) {
-//                    alert(error);
-//                    alert(status);
-//                    alert(request.responseText);
-                }
-            });
-
     });
 
     $("#check").click(function(){
@@ -76,6 +63,20 @@ function TogetherJsXBlock(runtime, element, data) {
             data: JSON.stringify({"hello": "world"}),
             success: updateRoom
         });
+
+        var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
+            $.ajax({
+                type: "POST",
+                url: handlerStudentUrl,
+                data: JSON.stringify({"hello": "world1"}),
+                success: updateUserName,
+                error: function (request, status, error) {
+                    alert(error);
+//                    alert(status);
+//                    alert(request.responseText);
+                }
+            });
+
 
     });
 

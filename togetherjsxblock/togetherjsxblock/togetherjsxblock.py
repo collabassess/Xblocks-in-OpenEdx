@@ -14,10 +14,9 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 
 # log = logging.getLogger(__name__);
 
-
+# @XBlock.needs('fs')
 @XBlock.needs("i18n")
 @XBlock.wants('user')
-# @XBlock.needs('fs')
 class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
@@ -95,9 +94,8 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
            a handler which returns user name.
         """
         user_service = self.runtime.service(self, 'user')
-        if user_service:
-            xb_user = user_service.get_current_user()
-            self.s_name = xb_user.full_name
+        xb_user = user_service.get_current_user()
+        self.s_name = xb_user.full_name
         return {"s_name": self.s_name}
 
     # @XBlock.json_handler
