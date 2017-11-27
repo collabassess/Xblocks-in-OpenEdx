@@ -14,10 +14,9 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 
 # log = logging.getLogger(__name__);
 
-
+# @XBlock.needs('fs')
 @XBlock.needs("i18n")
 @XBlock.wants('user')
-# @XBlock.needs('fs')
 class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
@@ -25,7 +24,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
 
 
     room = String(
-        default="roomdefault", scope=Scope.settings,
+        default="room", scope=Scope.settings,
         help="A chat room number",
     )
     s_name = String(default="a", scope=Scope.settings, help="user name")
@@ -80,28 +79,24 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     @XBlock.json_handler
     def returnRoom(self, data, suffix=''):
         """
-        An example handler, which increments the data.
+        a handler which returns the chat room name.
+        """
+        # user_service = self.runtime.service(self, 'user')
+        # xb_user = user_service.get_current_user()
+        # self.s_name = xb_user.full_name
+        # Just to show data coming in...
+        if(data['hello'] == 'world'):
+            return {"room": self.room}
+
+    @XBlock.json_handler
+    def returnUserName(self, data, suffix=''):
+        """
+           a handler which returns user name.
         """
         user_service = self.runtime.service(self, 'user')
         xb_user = user_service.get_current_user()
         self.s_name = xb_user.full_name
-        # Just to show data coming in...
-        if(data['hello'] == 'world'):
-            return {"room": self.room}
-        else:
-            return {"s_name": self.s_name}
-
-    # @XBlock.json_handler
-    # def returnUserName(self, data, suffix=''):
-    #     """
-    #     return current user data
-    #     """
-    #     user_service = self.runtime.service(self, 'user')
-    #     xb_user = user_service.get_current_user()
-    #     self.s_name = xb_user.full_name
-    #     if(self.s_name == "a"):
-    #         self.s_name = "b"
-    #     return {"s_name":self.s_name}
+        return {"s_name": self.s_name}
 
     # @XBlock.json_handler
     # def vote(self, data, suffix=''):  # pylint: disable=unused-argument

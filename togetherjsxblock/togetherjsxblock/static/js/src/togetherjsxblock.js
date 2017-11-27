@@ -4,21 +4,28 @@ function TogetherJsXBlock(runtime, element, data) {
     function updateRoom(result) {
         $('.room', element).text(result.room);
         TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
-        alert("room added:"+result.room)
+        //alert("room added:"+result.room)
     }
 
     function updateUserName(result) {
-        TogetherJSConfig_getUserName = result.s_name;
-        alert(result.s_name+" it works");
+        TogetherJS.config("getUserName", function () {
+          return result.s_name;
+        });
         TogetherJS.config("suppressJoinConfirmation", function () {
           return true;
         });
-        TogetherJS.reinitialize();
+
+        alert(result.s_name+" it works");
+        //TogetherJS();
     }
 
 
     $('#collaborate').click(function(){
-        TogetherJS();
+           TogetherJS();
+    });
+
+    $("#check").click(function(){
+        alert(TogetherJS.running);
     });
 
 
@@ -50,8 +57,6 @@ function TogetherJsXBlock(runtime, element, data) {
         });
 
         var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
-        //var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
-
         $.ajax({
             type: "POST",
             url: handlerUrl,
@@ -59,13 +64,18 @@ function TogetherJsXBlock(runtime, element, data) {
             success: updateRoom
         });
 
-        $.ajax({
-            type: "POST",
-            url: handlerUrl,
-            data: JSON.stringify({"hello": "world1"}),
-            success: updateUserName
-        });
-
+        var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
+            $.ajax({
+                type: "POST",
+                url: handlerStudentUrl,
+                data: JSON.stringify({"hello": "world1"}),
+                success: updateUserName,
+                error: function (request, status, error) {
+                    alert(error);
+//                    alert(status);
+//                    alert(request.responseText);
+                }
+            });
 
 
     });
