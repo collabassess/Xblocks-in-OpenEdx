@@ -4,7 +4,7 @@ function TogetherJsXBlock(runtime, element, data) {
     function updateRoom(result) {
         $('.room', element).text(result.room);
         TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
-        alert("room added:"+result.room)
+        //alert("room added:"+result.room)
     }
 
     function updateUserName(result) {
