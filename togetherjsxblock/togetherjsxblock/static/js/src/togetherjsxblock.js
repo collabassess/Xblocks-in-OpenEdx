@@ -72,8 +72,8 @@ function TogetherJsXBlock(runtime, element, data) {
                 success: updateUserName,
                 error: function (request, status, error) {
                     alert(error);
-//                    alert(status);
-//                    alert(request.responseText);
+                    alert(status);
+                    alert(request.responseText);
                 }
             });
 

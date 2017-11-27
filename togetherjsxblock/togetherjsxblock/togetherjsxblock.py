@@ -93,11 +93,16 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
            a handler which returns user name.
         """
-        user_service = self.runtime.service(self, 'user')
-        xb_user = user_service.get_current_user()
-        self.s_name = xb_user.full_name
-        return {"s_name": self.s_name}
 
+        return {"s_name": self.get_username().full_name}
+
+    def get_username(self):
+        """Get an attribute of the current user."""
+        user_service = self.runtime.service(self, 'user')
+        if user_service:
+            # May be None when creating bok choy test fixtures
+            return user_service.get_current_user()
+        return None
     # @XBlock.json_handler
     # def vote(self, data, suffix=''):  # pylint: disable=unused-argument
     #     """
