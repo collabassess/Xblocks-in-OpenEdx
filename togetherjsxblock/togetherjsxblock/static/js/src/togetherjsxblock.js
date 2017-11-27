@@ -43,7 +43,7 @@ function TogetherJsXBlock(runtime, element, data) {
         });
 
         TogetherJS.config("cloneClicks", function () {
-          return true;
+          return ".submit";
         });
 
         TogetherJS.config("includeHashInUrl", function () {
