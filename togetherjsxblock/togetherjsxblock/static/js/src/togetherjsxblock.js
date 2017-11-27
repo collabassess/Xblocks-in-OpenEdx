@@ -15,7 +15,7 @@ function TogetherJsXBlock(runtime, element, data) {
           return true;
         });
 
-        alert(result.s_name+" it works");
+        //alert(result.s_name+" it works");
         //TogetherJS();
     }
 
