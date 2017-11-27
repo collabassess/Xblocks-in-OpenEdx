@@ -10,14 +10,14 @@ from xblock.core import XBlock
 from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
-
 # from xblock.reference.plugins import Filesystem
 
 # log = logging.getLogger(__name__);
 
 
 @XBlock.needs("i18n")
-@XBlock.needs('user')
+@XBlock.wants('user')
+# @XBlock.needs('fs')
 class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
@@ -64,7 +64,6 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         # self.upvotes = votes['up']
         # self.downvotes = votes['down']
 
-
         html = self.resource_string("static/html/togetherjsxblock.html")
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/togetherjsxblock.css"))
@@ -97,8 +96,8 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         user_service = self.runtime.service(self, 'user')
         if user_service:
-            # May be None when creating bok choy test fixtures
-            self.s_name = user_service.get_current_user().full_name
+            xb_user = user_service.get_current_user()
+            self.s_name = xb_user.full_name
         return {"s_name": self.s_name}
 
     # @XBlock.json_handler
