@@ -1,9 +1,18 @@
 """TO-DO: Write a description of what this XBlock is."""
-import datetime
-import pytz
-import json
-# import logging
-import io
+# import datetime
+# import pytz
+# import json
+import logging
+# # import io
+#
+log = logging.getLogger(__name__)
+
+logging.basicConfig(level = logging.ERROR)
+
+logging.disable(logging.CRITICAL)
+logging.disable(logging.DEBUG)
+logging.disable(logging.INFO)
+
 
 import pkg_resources
 from xblock.core import XBlock
@@ -11,7 +20,7 @@ from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
 import MySQLdb
-
+import settings as s
 
 
 # @XBlock.needs('fs')
@@ -21,7 +30,6 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
     TO-DO: document what your XBlock does.
     """
-
 
     room = String(
         default="room", scope=Scope.settings,
@@ -33,9 +41,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
-    # TO-DO: delete count, and define your own fields.
-    # upvotes = 0
-    # downvotes = 0
+
 
     # fs = Filesystem(help="File system", scope=Scope.user_state_summary)
 
@@ -50,18 +56,6 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         The primary view of the TogetherJsXBlock, shown to students
         when viewing courses.
         """
-        # log.warning('The system may break down')
-        # if not self.fs.exists(u"custom.json"):
-        #     with self.fs.open(u'custom.json', 'wb') as file_output:
-        #         json.dump({
-        #             "up": 0,
-        #             "down": 0
-        #         }, file_output)
-        #         file_output.close()
-        #
-        # votes = json.load(self.fs.open(u"custom.json"))
-        # self.upvotes = votes['up']
-        # self.downvotes = votes['down']
 
         html = self.resource_string("static/html/togetherjsxblock.html")
         frag = Fragment(html.format(self=self))
@@ -81,19 +75,77 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         a handler which returns the chat room name.
         """
-        # user_service = self.runtime.service(self, 'user')
-        # xb_user = user_service.get_current_user()
-        # self.s_name = xb_user.full_name
-        # Just to show data coming in...
-        if(data['hello'] == 'world'):
+        cnx = MySQLdb.connect(**s.database)
+        cursor = cnx.cursor()
+        curr_user = self.get_userid()
+
+        cursor.execute("""
+                        SELECT group_id,user1,user2 from user_groups
+                        WHERE user1=%s OR user2=%s
+                       """, (curr_user, curr_user))
+        log.error("here")
+        for (group_id, user1, user2) in cursor:
+            log.error("in returnRoom fn")
+            self.room = str("room"+str(group_id))
             return {"room": self.room}
+
+    @XBlock.json_handler
+    def initializeRoom(self,data,suffix=''):
+        """
+                A handler, which intializes room for the collaboration partners and syncs with mysql backend.
+        """
+        cnx = MySQLdb.connect(**s.database)
+        cursor = cnx.cursor()
+        curr_user = self.get_userid()
+
+        cursor.execute("""
+                           SELECT * from user_groups
+                           WHERE user1=%s OR user2=%s
+                       """, (curr_user, curr_user))
+
+        if not cursor.rowcount:
+            log.error("No results found")
+            cursor.execute("""
+                           SELECT * from user_groups
+                           WHERE user1 IS NULL OR user2 IS NULL
+                            """)
+            if not cursor.rowcount:
+                log.error("New row created")
+                cursor.execute("""
+                                   INSERT INTO user_groups(course_id,user1) VALUES (%s,%s)
+                               """,
+                               ('1', curr_user))
+                cnx.commit()
+            else:
+                log.error("Old row updated")
+                for (group_id, course_id, user1, user2) in cursor:
+                    if user1 is None:
+                        log.error("User1 updated")
+                        cursor.execute("""
+                                        UPDATE user_groups
+                                        SET user1=%s
+                                        WHERE group_id=%s && course_id=%s
+                                       """,
+                                       (curr_user, group_id, course_id))
+                        cnx.commit()
+                    elif user2 is None:
+                        log.error("User2 updated")
+                        cursor.execute("""
+                                        UPDATE user_groups
+                                        SET user2=%s
+                                        WHERE group_id=%s && course_id=%s
+                                       """,
+                                       (curr_user, group_id, course_id))
+                        cnx.commit()
+        cursor.close()
+        cnx.close()
+
 
     @XBlock.json_handler
     def returnUserName(self, data, suffix=''):
         """
            a handler which returns user name.
         """
-
         return {"s_name": self.get_username().full_name}
 
     def get_username(self):
@@ -103,36 +155,17 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
             # May be None when creating bok choy test fixtures
             return user_service.get_current_user()
         return None
-    # @XBlock.json_handler
-    # def vote(self, data, suffix=''):  # pylint: disable=unused-argument
-    #     """
-    #     Update the vote count in response to a user action.
-    #     """
-    #     # Here is where we would prevent a student from voting twice, but then
-    #     # we couldn't click more than once in the demo!
-    #     #
-    #     #     if self.voted:
-    #     #         log.error("cheater!")
-    #     #         return
-    #
-    #     votes = json.load(self.fs.open(u"custom.json"))
-    #     self.upvotes = votes['up']
-    #     self.downvotes = votes['down']
-    #     if data['voteType'] not in ('up', 'down'):
-    #         log.error('error!')
-    #         return
-    #
-    #     if data['voteType'] == 'up':
-    #         self.upvotes += 1
-    #     else:
-    #         self.downvotes += 1
-    #
-    #     with self.fs.open(u'custom.json', 'wb') as file_output:
-    #         json.dump({'up': self.upvotes, 'down': self.downvotes}, file_output)
-    #
-    #     self.voted = True
-    #
-    #     return {'up': self.upvotes, 'down': self.downvotes}
+
+    def get_userid(self):
+        user_service = self.runtime.service(self, 'user')
+        if user_service:
+            # May be None when creating bok choy test fixtures
+            try:
+                return user_service.opt_attrs['edx-platform.user_id']
+            except:
+                return '4'
+   # def get_sql_access(self):
+
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
