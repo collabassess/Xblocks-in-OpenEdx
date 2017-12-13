@@ -80,13 +80,15 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         curr_user = self.get_userid()
 
         cursor.execute("""
-                        SELECT group_id,user1,user2 from user_groups
+                        SELECT * from user_groups
                         WHERE user1=%s OR user2=%s
                        """, (curr_user, curr_user))
-        log.error("here")
-        for (group_id, user1, user2) in cursor:
-            log.error("in returnRoom fn")
-            self.room = str("room"+str(group_id))
+        #log.error("here")
+        for (group_id, course_id, user1, user2) in cursor:
+            #log.error("in returnRoom fn")
+            self.room = str("room"+str(group_id)+str(course_id))
+            cursor.close()
+            cnx.close()
             return {"room": self.room}
 
     @XBlock.json_handler
