@@ -24,13 +24,6 @@ function TogetherJsXBlock(runtime, element, data) {
     $('#collaborate').click(function(){
            TogetherJS();
 
-           //initialize chat rooms
-            $.ajax({
-                type: "POST",
-                url: runtime.handlerUrl(element, 'initializeRoom'),
-                data: JSON.stringify({"hello": "world1"})
-            });
-
             //update room name
             var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
             $.ajax({
@@ -88,8 +81,12 @@ function TogetherJsXBlock(runtime, element, data) {
             }
         });
 
-
-
+        //initialize chat rooms
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'initializeRoom'),
+            data: JSON.stringify({"hello": "world1"})
+        });
 
     });
 
