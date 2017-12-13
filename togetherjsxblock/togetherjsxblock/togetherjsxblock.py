@@ -146,9 +146,9 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
            a handler which returns user name.
         """
-        return {"s_name": self.get_username().full_name}
+        return {"s_name": self.get_user().full_name}
 
-    def get_username(self):
+    def get_user(self):
         """Get an attribute of the current user."""
         user_service = self.runtime.service(self, 'user')
         if user_service:
@@ -157,13 +157,10 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         return None
 
     def get_userid(self):
-        user_service = self.runtime.service(self, 'user')
-        if user_service:
-            # May be None when creating bok choy test fixtures
-            try:
-                return user_service.opt_attrs['edx-platform.user_id']
-            except:
-                return '4'
+        try:
+            return self.get_user().opt_attrs['edx-platform.user_id']
+        except:
+            return '4'
    # def get_sql_access(self):
 
 
