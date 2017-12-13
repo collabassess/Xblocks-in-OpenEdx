@@ -11,7 +11,6 @@ from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
 import mysql.connector
-import settings as s
 
 
 
