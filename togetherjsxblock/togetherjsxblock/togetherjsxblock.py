@@ -32,12 +32,12 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
 
     room = String(
-        default="room", scope=Scope.user_state,
+        default="room", scope=Scope.settings,
         help="A chat room number",
     )
     s_name = String(default="a", scope=Scope.settings, help="user name")
 
-    editable_fields = ('s_name')
+    editable_fields = ('s_name','room')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
@@ -86,10 +86,10 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         #log.error("here")
         for (group_id, course_id, user1, user2) in cursor:
             #log.error("in returnRoom fn")
-            self.room = str("room"+str(group_id)+str(course_id))
+            temp = str("room"+str(group_id)+str(course_id))
             cursor.close()
             cnx.close()
-            return {"room": self.room}
+            return {"room": temp}
 
     @XBlock.json_handler
     def initializeRoom(self,data,suffix=''):
