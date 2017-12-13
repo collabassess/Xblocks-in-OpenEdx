@@ -1,0 +1,12 @@
+shareable_content_xblock/__init__.py
+shareable_content_xblock/shareable_content_xblock.py
+shareable_content_xblock/static/README.txt
+shareable_content_xblock/static/css/shareable_content_xblock.css
+shareable_content_xblock/static/html/shareable_content_xblock.html
+shareable_content_xblock/static/js/src/shareable_content_xblock.js
+shareable_content_xblock_xblock.egg-info/PKG-INFO
+shareable_content_xblock_xblock.egg-info/SOURCES.txt
+shareable_content_xblock_xblock.egg-info/dependency_links.txt
+shareable_content_xblock_xblock.egg-info/entry_points.txt
+shareable_content_xblock_xblock.egg-info/requires.txt
+shareable_content_xblock_xblock.egg-info/top_level.txt
