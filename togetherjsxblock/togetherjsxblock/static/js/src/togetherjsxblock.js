@@ -1,10 +1,15 @@
 /* Javascript for TogetherJsXBlock. */
 function TogetherJsXBlock(runtime, element, data) {
 
+    r = "";
     function updateRoom(result) {
         console.log(result.room);
+        this.r = result.room;
         $('.room', element).text(result.room);
         TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
+        TogetherJS.config("findRoom", function () {
+          return {prefix:result.room, max: 2};
+        });
         alert("room added:"+result.room)
     }
 
