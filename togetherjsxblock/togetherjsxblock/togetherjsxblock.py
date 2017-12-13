@@ -2,16 +2,16 @@
 # import datetime
 # import pytz
 # import json
-# import logging
-# # import io
-#
-# log = logging.getLogger(__name__)
-#
-# logging.basicConfig(level = logging.ERROR)
-#
-# logging.disable(logging.CRITICAL)
-# logging.disable(logging.DEBUG)
-# logging.disable(logging.INFO)
+import logging
+# import io
+
+log = logging.getLogger(__name__)
+
+logging.basicConfig(level = logging.ERROR)
+
+logging.disable(logging.CRITICAL)
+logging.disable(logging.DEBUG)
+logging.disable(logging.INFO)
 
 
 import pkg_resources
@@ -22,7 +22,9 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 import mysql.connector
 import settings as s
 from mysql.connector import errorcode
+# from xblock.reference.plugins import Filesystem
 
+# log = logging.getLogger(__name__);
 
 # @XBlock.needs('fs')
 @XBlock.needs("i18n")
@@ -86,8 +88,8 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
                        """, (curr_user, curr_user))
 
         for (group_id, user1, user2) in cursor:
-            log.error("in returnRoom fn")
-            self.room = str(str(group_id) + user1 + user2)
+            log.error("ye")
+            self.room = str(group_id + user1 + user2)
             return {"room": self.room}
 
     @XBlock.json_handler
@@ -105,39 +107,57 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
                        """, (curr_user, curr_user))
 
         if not cursor.rowcount:
-            # log.error("No results found")
+            log.error("No results found")
             cursor.execute("""
                            SELECT * from user_groups
                            WHERE user1 IS NULL OR user2 IS NULL
                             """)
-            if not cursor.rowcount:
-                # log.error("New row created")
-                cursor.execute("""
-                                   INSERT INTO user_groups(course_id,user1) VALUES (%s,%s)
-                               """,
-                               ('1', curr_user))
-                cnx.commit()
-            else:
-                # log.error("Old row updated")
-                for (group_id, course_id, user1, user2) in cursor:
-                    if user1 is None:
-                        # log.error("User1 updated")
-                        cursor.execute("""
+            for (group_id, course_id, user1, user2) in cursor:
+                if user1 is None:
+                    cursor.execute("""
                                         UPDATE user_groups
                                         SET user1=%s
                                         WHERE group_id=%s && course_id=%s
                                        """,
-                                       (curr_user, group_id, course_id))
-                        cnx.commit()
-                    elif user2 is None:
-                        # log.error("User2 updated")
-                        cursor.execute("""
-                                        UPDATE user_groups
-                                        SET user2=%s
-                                        WHERE group_id=%s && course_id=%s
-                                       """,
-                                       (curr_user, group_id, course_id))
-                        cnx.commit()
+                                   (curr_user, group_id, course_id))
+                    cnx.commit()
+
+
+            cursor.execute("""
+                               INSERT INTO user_groups(course_id,user1) VALUES (%s,%s)
+                           """,
+                           ('1', curr_user))
+            cnx.commit()
+        else:
+            for (group_id, course_id, user1, user2) in cursor:
+                log.error(group_id + "," + course_id)
+                if (user1 == curr_user):
+                    log.error(user2)
+                elif user1 is None:
+                    log.error("gotcha!")
+
+                    cursor.execute("""
+                                    UPDATE user_groups
+                                    SET user1=%s
+                                    WHERE group_id=%s && course_id=%s
+                                   """,
+                                   (curr_user, group_id, course_id))
+                    cnx.commit()
+
+                elif user2 == curr_user:
+                    log.error(user1)
+                    log.error("gotcha2")
+
+                elif user2 is None:
+                    log.error("gotcha4!")
+                    cursor.execute("""
+                                    UPDATE user_groups
+                                    SET user2=%s
+                                    WHERE group_id=%s && course_id=%s
+                                   """,
+                                   (curr_user, group_id, course_id))
+                    cnx.commit()
+
         cursor.close()
         cnx.close()
 
@@ -164,7 +184,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
             try:
                 return user_service.opt_attrs['edx-platform.user_id']
             except:
-                return '2'
+                return '4'
    # def get_sql_access(self):
 
 
