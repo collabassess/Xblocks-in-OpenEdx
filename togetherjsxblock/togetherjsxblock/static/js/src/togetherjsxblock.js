@@ -7,9 +7,6 @@ function TogetherJsXBlock(runtime, element, data) {
         this.r = result.room;
         $('.room', element).text(result.room);
         TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
-        TogetherJS.config("findRoom", function () {
-          return {prefix:result.room, max: 2};
-        });
         alert("room added:"+result.room)
     }
 
@@ -27,8 +24,6 @@ function TogetherJsXBlock(runtime, element, data) {
 
 
     $('#collaborate').click(function(){
-           TogetherJS();
-
            //initialize chat rooms
             $.ajax({
                 type: "POST",
@@ -44,6 +39,9 @@ function TogetherJsXBlock(runtime, element, data) {
                 data: JSON.stringify({"hello": "world"}),
                 success: updateRoom
             });
+
+            TogetherJS();
+
     });
 
     $("#check").click(function(){
