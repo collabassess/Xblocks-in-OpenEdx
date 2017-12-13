@@ -2,16 +2,16 @@
 # import datetime
 # import pytz
 # import json
-import logging
-# import io
-
-log = logging.getLogger(__name__)
-
-logging.basicConfig(level = logging.ERROR)
-
-logging.disable(logging.CRITICAL)
-logging.disable(logging.DEBUG)
-logging.disable(logging.INFO)
+# import logging
+# # import io
+#
+# log = logging.getLogger(__name__)
+#
+# logging.basicConfig(level = logging.ERROR)
+#
+# logging.disable(logging.CRITICAL)
+# logging.disable(logging.DEBUG)
+# logging.disable(logging.INFO)
 
 
 import pkg_resources
@@ -22,9 +22,7 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 import mysql.connector
 import settings as s
 from mysql.connector import errorcode
-# from xblock.reference.plugins import Filesystem
 
-# log = logging.getLogger(__name__);
 
 # @XBlock.needs('fs')
 @XBlock.needs("i18n")
@@ -107,23 +105,23 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
                        """, (curr_user, curr_user))
 
         if not cursor.rowcount:
-            log.error("No results found")
+            # log.error("No results found")
             cursor.execute("""
                            SELECT * from user_groups
                            WHERE user1 IS NULL OR user2 IS NULL
                             """)
             if not cursor.rowcount:
-                log.error("New row created")
+                # log.error("New row created")
                 cursor.execute("""
                                    INSERT INTO user_groups(course_id,user1) VALUES (%s,%s)
                                """,
                                ('1', curr_user))
                 cnx.commit()
             else:
-                log.error("Old row updated")
+                # log.error("Old row updated")
                 for (group_id, course_id, user1, user2) in cursor:
                     if user1 is None:
-                        log.error("User1 updated")
+                        # log.error("User1 updated")
                         cursor.execute("""
                                         UPDATE user_groups
                                         SET user1=%s
@@ -132,7 +130,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
                                        (curr_user, group_id, course_id))
                         cnx.commit()
                     elif user2 is None:
-                        log.error("User2 updated")
+                        # log.error("User2 updated")
                         cursor.execute("""
                                         UPDATE user_groups
                                         SET user2=%s

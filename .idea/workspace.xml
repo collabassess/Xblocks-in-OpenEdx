@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04daa3a-8635-409c-8174-7ca9bd10dc19" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/settings.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/settings.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/__init__.py" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" />
       <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -19,11 +14,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="togetherjsxblock.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="togetherjsxblock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="823">
-              <caret line="168" column="25" lean-forward="false" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+            <state relative-caret-position="435">
+              <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+              <folding>
+                <element signature="e#324#344#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.users" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/users.users">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -111,16 +118,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shareable_content_xblock/setup.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -189,76 +186,6 @@
               <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
               <item name=".vscode" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="togetherjsxblock" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -313,6 +240,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27413672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -321,7 +249,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37122127" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2636034" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -356,7 +284,7 @@
         <state relative-caret-position="255">
           <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -380,7 +308,7 @@
         <state relative-caret-position="255">
           <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -489,7 +417,7 @@
         <state relative-caret-position="75">
           <caret line="5" column="57" lean-forward="true" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -499,7 +427,7 @@
         <state relative-caret-position="225">
           <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -523,7 +451,7 @@
         <state relative-caret-position="255">
           <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -547,7 +475,7 @@
         <state relative-caret-position="255">
           <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="e#307#327#0" expanded="false" />
+            <element signature="e#324#344#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -598,13 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="34" column="18" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/users.users">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -738,8 +659,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="823">
-          <caret line="168" column="25" lean-forward="false" selection-start-line="168" selection-start-column="25" selection-end-line="168" selection-end-column="25" />
+        <state relative-caret-position="435">
+          <caret line="143" column="0" lean-forward="true" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+          <folding>
+            <element signature="e#324#344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/users.users">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
