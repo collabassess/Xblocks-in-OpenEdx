@@ -6,8 +6,7 @@ function TogetherJsXBlock(runtime, element, data) {
         console.log(result.room);
         this.r = result.room;
         $('.room', element).text(result.room);
-        TogetherJSConfig_findRoom = {prefix:result.room, max: 2};
-        alert("room added:"+result.room)
+        TogetherJSConfig_findRoom = "hell";
     }
 
     function updateUserName(result) {
@@ -70,7 +69,7 @@ function TogetherJsXBlock(runtime, element, data) {
           return true;
         });
 
-        TogetherJSConfig_hubBase = "https://calm-escarpment-25279.herokuapp.com/";
+       // TogetherJSConfig_hubBase = "https://calm-escarpment-25279.herokuapp.com/";
 
         TogetherJS.config("dontShowClicks",function(){
             return true;
