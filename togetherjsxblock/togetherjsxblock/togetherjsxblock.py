@@ -32,12 +32,12 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
     """
 
     room = String(
-        default="room", scope=Scope.settings,
+        default="room", scope=Scope.user_state,
         help="A chat room number",
     )
     s_name = String(default="a", scope=Scope.settings, help="user name")
 
-    editable_fields = ('s_name','room')
+    editable_fields = ('s_name')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
@@ -75,23 +75,21 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         """
         a handler which returns the chat room name.
         """
-        # cnx = MySQLdb.connect(**s.database)
-        # cursor = cnx.cursor()
-        # curr_user = self.get_userid()
-        #
-        # cursor.execute("""
-        #                 SELECT * from user_groups
-        #                 WHERE user1=%s OR user2=%s
-        #                """, (curr_user, curr_user))
-        # #log.error("here")
-        # for (group_id, course_id, user1, user2) in cursor:
-        #     #log.error("in returnRoom fn")
-        #     self.room = str("room"+str(group_id)+str(course_id))
-        #     cursor.close()
-        #     cnx.close()
-        #     return {"room": self.room}
-        self.room = "abc"
-        return {"room": self.room}
+        cnx = MySQLdb.connect(**s.database)
+        cursor = cnx.cursor()
+        curr_user = self.get_userid()
+
+        cursor.execute("""
+                        SELECT * from user_groups
+                        WHERE user1=%s OR user2=%s
+                       """, (curr_user, curr_user))
+        #log.error("here")
+        for (group_id, course_id, user1, user2) in cursor:
+            #log.error("in returnRoom fn")
+            self.room = str("room"+str(group_id)+str(course_id))
+            cursor.close()
+            cnx.close()
+            return {"room": self.room}
 
     @XBlock.json_handler
     def initializeRoom(self,data,suffix=''):

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04daa3a-8635-409c-8174-7ca9bd10dc19" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" />
       <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="togetherjsxblock.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="354">
+              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -555,6 +554,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="16" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/html/togetherjsxblock.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -571,18 +578,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
-          <caret line="84" column="16" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="354">
+          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
           <folding />
         </state>
       </provider>
