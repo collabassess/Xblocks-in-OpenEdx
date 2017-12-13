@@ -1,3 +1,0 @@
-[xblock.v1]
-shareable_content_xblock = shareable_content_xblock:ShareContentXBlock
-

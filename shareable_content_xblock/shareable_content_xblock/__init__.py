@@ -1,1 +1,0 @@
-from .shareable_content_xblock import ShareContentXBlock
