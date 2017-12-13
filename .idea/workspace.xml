@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04daa3a-8635-409c-8174-7ca9bd10dc19" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" />
+      <change beforePath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" afterPath="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,8 +17,8 @@
       <file leaf-file-name="togetherjsxblock.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+            <state relative-caret-position="161">
+              <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/togetherjs-min.js" />
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/html/togetherjsxblock.html" />
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/settings.py" />
-        <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js" />
+        <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
       </list>
     </option>
   </component>
@@ -580,8 +580,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+        <state relative-caret-position="161">
+          <caret line="41" column="21" lean-forward="true" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
           <folding />
         </state>
       </provider>
