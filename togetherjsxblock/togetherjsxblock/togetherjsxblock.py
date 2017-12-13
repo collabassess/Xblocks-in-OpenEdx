@@ -35,9 +35,9 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         default="room", scope=Scope.user_state,
         help="A chat room number",
     )
-    # s_name = String(default="a", scope=Scope.settings, help="user name")
-    #
-    # editable_fields = ('s_name')
+    s_name = String(default="a", scope=Scope.settings, help="user name")
+
+    editable_fields = ('s_name')
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 

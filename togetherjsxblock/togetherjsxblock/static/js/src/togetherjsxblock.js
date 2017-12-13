@@ -32,13 +32,6 @@ function TogetherJsXBlock(runtime, element, data) {
                 data: JSON.stringify({"hello": "world"}),
                 success: updateRoom
             });
-
-            //initialize chat rooms
-            $.ajax({
-                type: "POST",
-                url: runtime.handlerUrl(element, 'initializeRoom'),
-                data: JSON.stringify({"hello": "world1"})
-            });
     });
 
     $("#check").click(function(){
@@ -88,5 +81,11 @@ function TogetherJsXBlock(runtime, element, data) {
             }
         });
 
+        //initialize chat rooms
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'initializeRoom'),
+            data: JSON.stringify({"hello": "world1"})
+        });
 
     });
