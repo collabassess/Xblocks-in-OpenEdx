@@ -10,9 +10,10 @@ from xblock.core import XBlock
 from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
-# from xblock.reference.plugins import Filesystem
+import mysql.connector
+import settings as s
 
-# log = logging.getLogger(__name__);
+
 
 # @XBlock.needs('fs')
 @XBlock.needs("i18n")
