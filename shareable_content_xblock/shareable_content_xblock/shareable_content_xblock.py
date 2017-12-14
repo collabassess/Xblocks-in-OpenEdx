@@ -16,7 +16,6 @@ from xblockutils.studio_editable import StudioEditableXBlockMixin
 # logging.disable(logging.DEBUG)
 # logging.disable(logging.INFO)
 import MySQLdb
-import settings as s
 
 @XBlock.needs("i18n")
 @XBlock.wants('user')
@@ -64,7 +63,7 @@ class ShareContentXBlock(XBlock):
     def submit_ans(self, data, suffix=''):
         #log.error(data['user1'])
         sol = data['user1']
-        cnx = MySQLdb.connect(**s.database)
+        cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
         cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s""",curr_user)
@@ -94,7 +93,7 @@ class ShareContentXBlock(XBlock):
 
     @XBlock.json_handler
     def get_ans_self(self,data,suffix=''):
-        cnx = MySQLdb.connect(**s.database)
+        cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
         cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", (curr_user))
@@ -114,7 +113,7 @@ class ShareContentXBlock(XBlock):
 
     @XBlock.json_handler
     def get_ans_ptnr(self,data,suffix=''):
-        cnx = MySQLdb.connect(**s.database)
+        cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
         cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user,curr_user))
@@ -153,6 +152,8 @@ class ShareContentXBlock(XBlock):
         """
         return {"s_name": self.get_user().full_name}
 
+    def conn_db(self):
+        return MySQLdb.connect(host='54.156.197.224',user= 'edxapp001',passwd= 'password',db= 'collab_assess')
     def get_user(self):
         """Get an attribute of the current user."""
         user_service = self.runtime.service(self, 'user')
