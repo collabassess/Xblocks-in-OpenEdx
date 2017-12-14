@@ -121,7 +121,7 @@ class ShareContentXBlock(XBlock):
            # log.error("else")
             for (user1,user2) in cursor:
              #   log.error(user1+","+user2+":"+curr_user)
-                if user1 == curr_user:
+                if int(user1) == int(curr_user):
                     partner = user2
                 else:
                     partner = user1
@@ -158,7 +158,7 @@ class ShareContentXBlock(XBlock):
             return "user has no partner"
         else:
             for (user1, user2) in cursor:
-                if user1 == int(curr_user):
+                if int(user1) == int(curr_user):
                     part = user2
                 else:
                     part = user1

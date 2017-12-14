@@ -17,8 +17,8 @@
       <file leaf-file-name="shareable_content_xblock.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="163" column="31" lean-forward="true" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
+            <state relative-caret-position="234">
+              <caret line="127" column="29" lean-forward="true" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
               <folding>
                 <element signature="e#58#78#0" expanded="true" />
               </folding>
@@ -637,8 +637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="163" column="31" lean-forward="true" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
+        <state relative-caret-position="234">
+          <caret line="127" column="29" lean-forward="true" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
           <folding>
             <element signature="e#58#78#0" expanded="true" />
           </folding>
