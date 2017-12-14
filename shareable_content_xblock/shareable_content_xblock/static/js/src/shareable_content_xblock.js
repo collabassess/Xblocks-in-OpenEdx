@@ -55,12 +55,27 @@ function ShareContentXBlock(runtime, element) {
 
     }
 
+    function get_partner(){
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'get_ptnr_id'),
+            data:JSON.stringify({"hello": "world"}),
+            success: function(result){
+            console.log("partner is "+result[0]);
+                console.log('idhar');
+            }
+        });
+    }
     $(function ($) {
-
+console.log("here1");
+        get_partner();
+console.log("here2");
          check_ans_self();
 
          get_ans_ptnr();
 
          setInterval(get_ans_ptnr, 1000);
+
+
     });
 }

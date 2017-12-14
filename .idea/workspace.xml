@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f04daa3a-8635-409c-8174-7ca9bd10dc19" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" afterPath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
       <change beforePath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" afterPath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shareable_content_xblock.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="shareable_content_xblock.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
+            <state relative-caret-position="291">
+              <caret line="189" column="21" lean-forward="false" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
               <folding>
                 <element signature="e#58#78#0" expanded="true" />
               </folding>
@@ -26,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shareable_content_xblock.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shareable_content_xblock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
+            <state relative-caret-position="593">
+              <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -122,9 +123,9 @@
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/jquery.js" />
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/settings.py" />
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
-        <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/html/shareable_content_xblock.html" />
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" />
+        <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
       </list>
     </option>
   </component>
@@ -173,6 +174,17 @@
             <path>
               <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
               <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
+              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Xblocks" type="462c0819:PsiDirectoryNode" />
+              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
+              <item name="shareable_content_xblock" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Xblocks" type="b2602c69:ProjectViewProjectNode" />
@@ -596,13 +608,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
+    <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="47" column="11" lean-forward="false" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-          <folding>
-            <element signature="e#58#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="263">
+          <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -618,19 +628,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
+    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="52" />
+        <state relative-caret-position="593">
+          <caret line="63" column="36" lean-forward="false" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
+    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="28" column="38" lean-forward="true" selection-start-line="28" selection-start-column="38" selection-end-line="28" selection-end-column="38" />
-          <folding />
+        <state relative-caret-position="291">
+          <caret line="189" column="21" lean-forward="false" selection-start-line="189" selection-start-column="21" selection-end-line="189" selection-end-column="21" />
+          <folding>
+            <element signature="e#58#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

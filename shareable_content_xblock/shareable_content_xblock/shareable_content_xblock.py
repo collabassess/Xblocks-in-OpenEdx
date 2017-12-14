@@ -1,20 +1,20 @@
 """TO-DO: Write a description of what this XBlock is."""
 
 import pkg_resources
-#import logging
+import logging
 
 from xblock.core import XBlock
 from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
 
-# log = logging.getLogger(__name__)
-#
-# logging.basicConfig(level = logging.ERROR)
-#
-# logging.disable(logging.CRITICAL)
-# logging.disable(logging.DEBUG)
-# logging.disable(logging.INFO)
+log = logging.getLogger(__name__)
+
+logging.basicConfig(level = logging.ERROR)
+
+logging.disable(logging.CRITICAL)
+logging.disable(logging.DEBUG)
+logging.disable(logging.INFO)
 import MySQLdb
 
 @XBlock.needs("i18n")
@@ -144,6 +144,29 @@ class ShareContentXBlock(XBlock):
         return "failed"
 
     @XBlock.json_handler
+    def get_ptnr_id(self, data, suffix=''):
+        log.error("idhar")
+        cnx = self.conn_db()
+        cursor = cnx.cursor()
+        curr_user = self.get_userid()
+        cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user, curr_user))
+        part = ""
+        log.error("idhar")
+        if not cursor.rowcount:
+            cursor.close()
+            cnx.close()
+            return "user has no partner"
+        else:
+            for (user1, user2) in cursor:
+                if user1 == curr_user:
+                    part = user2
+                else:
+                    part = user1
+        cursor.close()
+        cnx.close()
+        return part
+
+    @XBlock.json_handler
     def returnUserName(self, data, suffix=''):
         """
            a handler which returns user name.
@@ -164,7 +187,7 @@ class ShareContentXBlock(XBlock):
         try:
             return self.get_user().opt_attrs['edx-platform.user_id']
         except:
-            return '4'
+            return '3'
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
