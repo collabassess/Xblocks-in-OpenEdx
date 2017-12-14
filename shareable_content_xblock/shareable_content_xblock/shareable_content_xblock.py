@@ -27,11 +27,6 @@ class ShareContentXBlock(XBlock):
     # Fields are defined on the class.  You can access them in your code as
     # self.<fieldname>.
 
-    # TO-DO: delete count, and define your own fields.
-    count = Integer(
-        default=0, scope=Scope.user_state,
-        help="A simple counter, to show something happening",
-    )
     room = String(
         default="room", scope=Scope.settings,
         help="A chat room number",
