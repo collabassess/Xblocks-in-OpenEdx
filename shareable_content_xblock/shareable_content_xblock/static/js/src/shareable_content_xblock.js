@@ -55,9 +55,9 @@ function ShareContentXBlock(runtime, element) {
 
     $(function ($) {
 
-         check_ans_self();
+         //check_ans_self();
 
-         get_ans_ptnr();
+         //get_ans_ptnr();
 
          //setInterval(get_ans_ptnr, 1000);
     });

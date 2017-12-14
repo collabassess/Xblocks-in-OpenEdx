@@ -86,59 +86,59 @@ class ShareContentXBlock(XBlock):
         cnx.close()
         return "done"
 
-    @XBlock.json_handler
-    def get_ans_self(self,data,suffix=''):
-        cnx = self.conn_db()
-        cursor = cnx.cursor()
-        curr_user = self.get_userid()
-        cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", (curr_user))
-        if not cursor.rowcount:
-            cursor.close()
-            cnx.close()
-            return " "
-        else:
-           # log.error("else")
-            for ans in cursor:
-               # log.error(ans)
-                cursor.close()
-                cnx.close()
-                return ans
-        return "failed"
+    # @XBlock.json_handler
+    # def get_ans_self(self,data,suffix=''):
+    #     cnx = self.conn_db()
+    #     cursor = cnx.cursor()
+    #     curr_user = self.get_userid()
+    #     cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", (curr_user))
+    #     if not cursor.rowcount:
+    #         cursor.close()
+    #         cnx.close()
+    #         return "Not answered yet"
+    #     else:
+    #        # log.error("else")
+    #         for ans in cursor:
+    #            # log.error(ans)
+    #             cursor.close()
+    #             cnx.close()
+    #             return ans
+    #     return "failed"
 
 
-    @XBlock.json_handler
-    def get_ans_ptnr(self,data,suffix=''):
-        cnx = self.conn_db()
-        cursor = cnx.cursor()
-        curr_user = self.get_userid()
-        cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user,curr_user))
-        if not cursor.rowcount:
-            return "user has no partner"
-        else:
-           # log.error("else")
-            for (user1,user2) in cursor:
-             #   log.error(user1+","+user2+":"+curr_user)
-                if user1 == curr_user:
-                    partner = user2
-                else:
-                    partner = user1
-              #  log.error("partner:"+partner)
-                cursor.execute("""
-                                SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id='1'
-                                """,(partner))
-                if not cursor.rowcount:
-                    cursor.close()
-                    cnx.close()
-                    return "partner has not answered yet"
-                else:
-                    for ans in cursor:
-                  #      log.error(ans)
-                        cursor.close()
-                        cnx.close()
-                        return ans
-        cursor.close()
-        cnx.close()
-        return "failed"
+    # @XBlock.json_handler
+    # def get_ans_ptnr(self,data,suffix=''):
+    #     cnx = self.conn_db()
+    #     cursor = cnx.cursor()
+    #     curr_user = self.get_userid()
+    #     cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user,curr_user))
+    #     if not cursor.rowcount:
+    #         return "user has no partner"
+    #     else:
+    #        # log.error("else")
+    #         for (user1,user2) in cursor:
+    #          #   log.error(user1+","+user2+":"+curr_user)
+    #             if user1 == curr_user:
+    #                 partner = user2
+    #             else:
+    #                 partner = user1
+    #           #  log.error("partner:"+partner)
+    #             cursor.execute("""
+    #                             SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id='1'
+    #                             """,(partner))
+    #             if not cursor.rowcount:
+    #                 cursor.close()
+    #                 cnx.close()
+    #                 return "partner has not answered yet"
+    #             else:
+    #                 for ans in cursor:
+    #               #      log.error(ans)
+    #                     cursor.close()
+    #                     cnx.close()
+    #                     return ans
+    #     cursor.close()
+    #     cnx.close()
+    #     return "failed"
 
     @XBlock.json_handler
     def returnUserName(self, data, suffix=''):
