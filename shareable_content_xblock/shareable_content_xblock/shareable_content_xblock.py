@@ -60,21 +60,6 @@ class ShareContentXBlock(XBlock):
         frag.initialize_js('ShareContentXBlock')
         return frag
 
-    # TO-DO: change this handler to perform your own actions.  You may need more
-    # than one handler, or you may not need any handlers at all.
-    @XBlock.json_handler
-    def get_room(self,data,suffix=''):
-        cnx = MySQLdb.connect(**s.database)
-        cursor = cnx.cursor()
-        curr_user = self.get_userid()
-        cursor.execute("""
-                    SELECT group_id,course_id from user_groups
-                    WHERE user1=%s OR user2=%s
-                    """,(curr_user,curr_user))
-        for (group_id,course_id) in cursor:
-            #log.error("ye")
-            self.room = str(group_id+"-"+course_id)
-            return {"room": self.room}
 
     @XBlock.json_handler
     def submit_ans(self, data, suffix=''):
@@ -104,6 +89,8 @@ class ShareContentXBlock(XBlock):
 
                 cnx.commit()
                 break
+        cursor.close()
+        cnx.close()
         return "done"
 
     @XBlock.json_handler
@@ -113,11 +100,15 @@ class ShareContentXBlock(XBlock):
         curr_user = self.get_userid()
         cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", (curr_user))
         if not cursor.rowcount:
+            cursor.close()
+            cnx.close()
             return " "
         else:
            # log.error("else")
             for ans in cursor:
                # log.error(ans)
+                cursor.close()
+                cnx.close()
                 return ans
         return "failed"
 
@@ -143,11 +134,17 @@ class ShareContentXBlock(XBlock):
                                 SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id='1'
                                 """,(partner))
                 if not cursor.rowcount:
+                    cursor.close()
+                    cnx.close()
                     return "partner has not answered yet"
                 else:
                     for ans in cursor:
                   #      log.error(ans)
+                        cursor.close()
+                        cnx.close()
                         return ans
+        cursor.close()
+        cnx.close()
         return "failed"
 
     @XBlock.json_handler
