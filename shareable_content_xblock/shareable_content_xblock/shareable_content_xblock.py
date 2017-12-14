@@ -1,20 +1,20 @@
 """TO-DO: Write a description of what this XBlock is."""
 
 import pkg_resources
-import logging
+#import logging
 
 from xblock.core import XBlock
 from xblock.fields import Integer, Scope,String, DateTime, Boolean
 from xblock.fragment import Fragment
 from xblockutils.studio_editable import StudioEditableXBlockMixin
 
-log = logging.getLogger(__name__)
-
-logging.basicConfig(level = logging.ERROR)
-
-logging.disable(logging.CRITICAL)
-logging.disable(logging.DEBUG)
-logging.disable(logging.INFO)
+# log = logging.getLogger(__name__)
+#
+# logging.basicConfig(level = logging.ERROR)
+#
+# logging.disable(logging.CRITICAL)
+# logging.disable(logging.DEBUG)
+# logging.disable(logging.INFO)
 import MySQLdb
 import settings as s
 
@@ -72,30 +72,30 @@ class ShareContentXBlock(XBlock):
                     WHERE user1=%s OR user2=%s
                     """,(curr_user,curr_user))
         for (group_id,course_id) in cursor:
-            log.error("ye")
+            #log.error("ye")
             self.room = str(group_id+"-"+course_id)
             return {"room": self.room}
 
     @XBlock.json_handler
     def submit_ans(self, data, suffix=''):
-        log.error(data['user1'])
+        #log.error(data['user1'])
         sol = data['user1']
         cnx = MySQLdb.connect(**s.database)
         cursor = cnx.cursor()
         curr_user = self.get_userid()
         cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s""",curr_user)
         if not cursor.rowcount:
-            log.error("New row created"+","+curr_user+","+sol)
+            #log.error("New row created"+","+curr_user+","+sol)
             cursor.execute("""
                                INSERT INTO user_hint_solutions
                                 VALUES(%s,%s,%s)
                            """, ('1',sol,str(curr_user)))
             cnx.commit()
         else:
-            log.error("update")
+            #log.error("update")
             for (Question_id, ans, user_id) in cursor:
-                log.error(Question_id+","+user_id+","+sol)
-                log.error('1,'+curr_user)
+                #log.error(Question_id+","+user_id+","+sol)
+                #log.error('1,'+curr_user)
                 cursor.execute("""
                                 UPDATE user_hint_solutions
                                 SET ans=%s
@@ -115,9 +115,9 @@ class ShareContentXBlock(XBlock):
         if not cursor.rowcount:
             return " "
         else:
-            log.error("else")
+           # log.error("else")
             for ans in cursor:
-                log.error(ans)
+               # log.error(ans)
                 return ans
         return "failed"
 
@@ -131,14 +131,14 @@ class ShareContentXBlock(XBlock):
         if not cursor.rowcount:
             return "user has no partner"
         else:
-            log.error("else")
+           # log.error("else")
             for (user1,user2) in cursor:
-                log.error(user1+","+user2+":"+curr_user)
+             #   log.error(user1+","+user2+":"+curr_user)
                 if user1 == curr_user:
                     partner = user2
                 else:
                     partner = user1
-                log.error("partner:"+partner)
+              #  log.error("partner:"+partner)
                 cursor.execute("""
                                 SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id='1'
                                 """,(partner))
@@ -146,7 +146,7 @@ class ShareContentXBlock(XBlock):
                     return "partner has not answered yet"
                 else:
                     for ans in cursor:
-                        log.error(ans)
+                  #      log.error(ans)
                         return ans
         return "failed"
 
