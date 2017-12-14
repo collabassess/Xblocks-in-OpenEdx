@@ -50,6 +50,7 @@ class ShareContentXBlock(XBlock):
         frag = Fragment(html.format(self=self))
         frag.add_css(self.resource_string("static/css/shareable_content_xblock.css"))
         frag.add_javascript(self.resource_string("static/js/src/shareable_content_xblock.js"))
+
         frag.initialize_js('ShareContentXBlock')
         return frag
 
