@@ -1,0 +1,9 @@
+/* CSS for ShareContentXBlock */
+
+.shareable_content_xblock_block .count {
+    font-weight: bold;
+}
+
+.shareable_content_xblock_block p {
+    cursor: pointer;
+}
