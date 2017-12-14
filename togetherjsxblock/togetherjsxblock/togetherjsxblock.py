@@ -99,7 +99,7 @@ class TogetherJsXBlock(StudioEditableXBlockMixin,XBlock):
         cnx = MySQLdb.connect(**s.database)
         cursor = cnx.cursor()
         curr_user = self.get_userid()
-
+        log.error("curr_user:"+curr_user)
         cursor.execute("""
                            SELECT * from user_groups
                            WHERE user1=%s OR user2=%s

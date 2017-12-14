@@ -61,7 +61,7 @@ class ShareContentXBlock(XBlock):
         cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
-        cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s""",curr_user)
+        cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s""",str(curr_user))
         if not cursor.rowcount:
             #log.error("New row created"+","+curr_user+","+sol)
             cursor.execute("""
@@ -91,7 +91,7 @@ class ShareContentXBlock(XBlock):
         cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
-        cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", (curr_user))
+        cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", str(curr_user))
         if not cursor.rowcount:
             cursor.close()
             cnx.close()
@@ -113,6 +113,8 @@ class ShareContentXBlock(XBlock):
         curr_user = self.get_userid()
         cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user,curr_user))
         if not cursor.rowcount:
+            cursor.close()
+            cnx.close()
             return "user has no partner"
         else:
            # log.error("else")
