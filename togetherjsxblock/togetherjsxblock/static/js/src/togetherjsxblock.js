@@ -1,13 +1,7 @@
 /* Javascript for TogetherJsXBlock. */
 function TogetherJsXBlock(runtime, element, data) {
 
-    r = "";
-    function updateRoom(result) {
-        console.log(result.room);
-        this.r = result.room;
-        $('.room', element).text(result.room);
-        TogetherJSConfig_findRoom = "hell";
-    }
+
 
     function updateUserName(result) {
         TogetherJS.config("getUserName", function () {
@@ -23,23 +17,9 @@ function TogetherJsXBlock(runtime, element, data) {
 
 
     $('#collaborate').click(function(){
-           //initialize chat rooms
-            $.ajax({
-                type: "POST",
-                url: runtime.handlerUrl(element, 'initializeRoom'),
-                data: JSON.stringify({"hello": "world1"})
-            });
-
-            //update room name
-            var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
-            $.ajax({
-                type: "POST",
-                url: handlerUrl,
-                data: JSON.stringify({"hello": "world"}),
-                success: updateRoom
-            });
 
             TogetherJS();
+            console.log(TogetherJS.config.get("findRoom"))
 
     });
 
@@ -69,13 +49,30 @@ function TogetherJsXBlock(runtime, element, data) {
           return true;
         });
 
-       // TogetherJSConfig_hubBase = "https://calm-escarpment-25279.herokuapp.com/";
+        TogetherJSConfig_hubBase = "https://calm-escarpment-25279.herokuapp.com/";
 
         TogetherJS.config("dontShowClicks",function(){
             return true;
         });
+        //initialize chat rooms
+         $.ajax({
+                type: "POST",
+                url: runtime.handlerUrl(element, 'initializeRoom'),
+                data: JSON.stringify({"hello": "world1"})
+            });
 
+       // update room name
+        var handlerUrl = runtime.handlerUrl(element, 'returnRoom');
+        $.ajax({
+            type: "POST",
+            url: handlerUrl,
+            data: JSON.stringify({"hello": "world"}),
+            success: function(result){
+                TogetherJSConfig_findRoom = {prefix: result.room, max: 5};
+            }
+        });
 
+        console.log(TogetherJS.config.get("findRoom"))
 
         var handlerStudentUrl = runtime.handlerUrl(element, 'returnUserName');
         $.ajax({
