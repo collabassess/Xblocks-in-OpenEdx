@@ -158,7 +158,7 @@ class ShareContentXBlock(XBlock):
             return "user has no partner"
         else:
             for (user1, user2) in cursor:
-                if user1 == curr_user:
+                if user1 == int(curr_user):
                     part = user2
                 else:
                     part = user1
