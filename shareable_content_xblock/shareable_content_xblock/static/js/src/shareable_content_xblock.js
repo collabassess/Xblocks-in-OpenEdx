@@ -27,6 +27,7 @@ function ShareContentXBlock(runtime, element) {
             url: runtime.handlerUrl(element, 'get_ans_ptnr'),
             data:JSON.stringify({"hello": "world"}),
             success: function(result){
+            console.log("user2:"+result[0]);
                 SelectRadioButton("user2",result[0]);
                 $(".solution2").text("hint is: "+result[0]);
             }
@@ -39,6 +40,7 @@ function ShareContentXBlock(runtime, element) {
             url: runtime.handlerUrl(element, 'get_ans_self'),
             data:JSON.stringify({"hello": "world"}),
             success: function(result){
+            console.log("user1:"+result[0]);
                 SelectRadioButton("user1",result[0]);
                 $(".solution").text("hint is: "+result[0]);
             }
