@@ -81,7 +81,7 @@ function ShareContentXBlock(runtime, element) {
 
          get_ans_ptnr();
 
-         //setInterval(get_ans_ptnr, 1000);
+         setInterval(get_ans_ptnr, 1000);
 
 
     });
