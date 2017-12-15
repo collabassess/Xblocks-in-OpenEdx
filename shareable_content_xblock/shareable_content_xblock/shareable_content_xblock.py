@@ -177,6 +177,10 @@ class ShareContentXBlock(XBlock):
         """
         return {"s_name": self.get_user().full_name}
 
+    @XBlock.json_handler
+    def returnXblockId(self,data,suffix=''):
+        return {"id":str(self.get_xblock_id())}
+
     def get_xblock_id(self):
         """
         a handler which returns the id of the current xblock

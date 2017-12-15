@@ -1,26 +1,6 @@
 /* Javascript for ShareContentXBlock. */
 function ShareContentXBlock(runtime, element) {
 
-
-    $("#stu_sol").click(function(){
-        var dataString = $('#stu_form').serializeArray().reduce(function(obj, item) {
-                        obj[item.name] = item.value;
-                        return obj;
-                    }, {});
-        $(".solution").text("hint is: "+dataString.user1);
-        $.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(element, 'submit_ans'),
-            data: JSON.stringify(dataString),
-            success: function(result){
-                console.log(result);
-            }
-        });
-
-
-
-    });
-
     function get_ans_ptnr(){
         $.ajax({
             type: "POST",
@@ -64,9 +44,35 @@ function ShareContentXBlock(runtime, element) {
         });
     }
 
-
+    $('.btn').click(function(){
+        console.log($(this).closest('form').attr('id'))
+        var dataString = $(this).closest('form').serializeArray().reduce(function(obj, item) {
+                        obj[item.name] = item.value;
+                        return obj;
+                    }, {});
+        console.log(dataString);
+        $(this).closest(".solution").text("hint is: "+dataString.user1);
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'submit_ans'),
+            data: JSON.stringify(dataString),
+            success: function(result){
+                console.log(result);
+            }
+        });
+    });
 
     $(function ($) {
+
+        $.ajax({
+            type: "POST",
+            url: runtime.handlerUrl(element, 'returnXblockId'),
+            data:JSON.stringify({"hello": "world"}),
+            success: function(result){
+                   id = result.id;
+
+            }
+        });
 
 
          get_partner();
