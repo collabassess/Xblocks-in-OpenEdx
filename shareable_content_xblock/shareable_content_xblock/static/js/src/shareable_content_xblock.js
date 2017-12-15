@@ -51,7 +51,10 @@ function ShareContentXBlock(runtime, element) {
                         return obj;
                     }, {});
         console.log(dataString);
-        $(this).closest(".solution").text("hint is: "+dataString.user1);
+        console.log($(this).next('.solution').attr('id'))
+
+        $("#sol").text("hint is: "+dataString.user1);
+
         $.ajax({
             type: "POST",
             url: runtime.handlerUrl(element, 'submit_ans'),
