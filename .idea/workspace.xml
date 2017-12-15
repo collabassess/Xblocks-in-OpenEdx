@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f04daa3a-8635-409c-8174-7ca9bd10dc19" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" afterPath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
       <change beforePath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" afterPath="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -15,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="shareable_content_xblock.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="shareable_content_xblock.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="127" column="29" lean-forward="true" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
+            <state relative-caret-position="482">
+              <caret line="199" column="21" lean-forward="false" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
               <folding>
                 <element signature="e#58#78#0" expanded="true" />
               </folding>
@@ -27,11 +28,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shareable_content_xblock.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="shareable_content_xblock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,7 +41,7 @@
       <file leaf-file-name="shareable_content_xblock.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/html/shareable_content_xblock.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-381">
+            <state relative-caret-position="30">
               <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="e#750#757#0" expanded="true" />
@@ -64,7 +65,7 @@
       <file leaf-file-name="togetherjsxblock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
+            <state relative-caret-position="1020">
               <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="52" />
               <folding />
             </state>
@@ -74,7 +75,7 @@
       <file leaf-file-name="togetherjsxblock.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-716">
+            <state relative-caret-position="1530">
               <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
@@ -107,6 +108,7 @@
     <findStrings>
       <find>ignoring</find>
       <find>log</find>
+      <find>runtime</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,8 +126,8 @@
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/settings.py" />
         <option value="$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py" />
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/html/shareable_content_xblock.html" />
-        <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
         <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js" />
+        <option value="$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py" />
       </list>
     </option>
   </component>
@@ -166,8 +168,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -201,6 +201,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,7 +255,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22732769" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26118502" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -602,7 +604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/togetherjsxblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-716">
+        <state relative-caret-position="1530">
           <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding />
         </state>
@@ -610,7 +612,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/togetherjsxblock/togetherjsxblock/static/js/src/togetherjsxblock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
+        <state relative-caret-position="1020">
           <caret line="68" column="18" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="52" />
           <folding />
         </state>
@@ -618,7 +620,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/html/shareable_content_xblock.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-381">
+        <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="e#750#757#0" expanded="true" />
@@ -628,21 +630,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
+    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="127" column="29" lean-forward="true" selection-start-line="127" selection-start-column="29" selection-end-line="127" selection-end-column="29" />
-          <folding>
-            <element signature="e#58#78#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="225">
+          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/static/js/src/shareable_content_xblock.js">
+    <entry file="file://$PROJECT_DIR$/shareable_content_xblock/shareable_content_xblock/shareable_content_xblock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="482">
+          <caret line="199" column="21" lean-forward="false" selection-start-line="199" selection-start-column="21" selection-end-line="199" selection-end-column="21" />
+          <folding>
+            <element signature="e#58#78#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

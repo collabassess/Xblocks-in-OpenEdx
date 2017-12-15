@@ -59,16 +59,17 @@ class ShareContentXBlock(XBlock):
     def submit_ans(self, data, suffix=''):
         #log.error(data['user1'])
         sol = data['user1']
+        ques_id = str(self.get_xblock_id())
         cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
-        cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s""",str(curr_user))
+        cursor.execute("""SELECT * FROM user_hint_solutions where user_id=%s AND Question_id=%s""",(str(curr_user),ques_id))
         if not cursor.rowcount:
             #log.error("New row created"+","+curr_user+","+sol)
             cursor.execute("""
-                               INSERT INTO user_hint_solutions
+                               INSERT INTO user_hint_solutions(user_id,Question_id,ans)
                                 VALUES(%s,%s,%s)
-                           """, ('1',sol,str(curr_user)))
+                           """, (str(curr_user),ques_id,sol))
             cnx.commit()
         else:
             #log.error("update")
@@ -79,7 +80,7 @@ class ShareContentXBlock(XBlock):
                                 UPDATE user_hint_solutions
                                 SET ans=%s
                                 WHERE Question_id=%s AND user_id=%s
-                                """, (sol,'1',curr_user))
+                                """, (sol,ques_id,curr_user))
 
                 cnx.commit()
                 break
@@ -91,8 +92,10 @@ class ShareContentXBlock(XBlock):
     def get_ans_self(self,data,suffix=''):
         cnx = self.conn_db()
         cursor = cnx.cursor()
+        ques_id = str(self.get_xblock_id())
+        log.error(ques_id)
         curr_user = self.get_userid()
-        cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s""", str(curr_user))
+        cursor.execute("""SELECT ans FROM user_hint_solutions where user_id=%s and Question_id=%s""", (str(curr_user),ques_id))
         if not cursor.rowcount:
             cursor.close()
             cnx.close()
@@ -112,6 +115,7 @@ class ShareContentXBlock(XBlock):
         cnx = self.conn_db()
         cursor = cnx.cursor()
         curr_user = self.get_userid()
+        ques_id = str(self.get_xblock_id())
         cursor.execute("""SELECT user1,user2 FROM user_groups where user1=%s OR user2=%s""", (curr_user,curr_user))
         if not cursor.rowcount:
             cursor.close()
@@ -127,8 +131,8 @@ class ShareContentXBlock(XBlock):
                     partner = user1
               #  log.error("partner:"+partner)
                 cursor.execute("""
-                                SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id='1'
-                                """,(partner))
+                                SELECT ans FROM user_hint_solutions where user_id=%s AND Question_id=%s
+                                """,(partner,ques_id))
                 if not cursor.rowcount:
                     cursor.close()
                     cnx.close()
@@ -172,6 +176,12 @@ class ShareContentXBlock(XBlock):
            a handler which returns user name.
         """
         return {"s_name": self.get_user().full_name}
+
+    def get_xblock_id(self):
+        """
+        a handler which returns the id of the current xblock
+        """
+        return self.scope_ids.usage_id
 
     def conn_db(self):
         return MySQLdb.connect(host='54.156.197.224',user= 'edxapp001',passwd= 'password',db= 'collab_assess')

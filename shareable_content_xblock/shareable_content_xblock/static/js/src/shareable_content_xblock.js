@@ -63,13 +63,19 @@ function ShareContentXBlock(runtime, element) {
             }
         });
     }
+
+
+
     $(function ($) {
+
+
          get_partner();
+
          check_ans_self();
 
          get_ans_ptnr();
 
-         setInterval(get_ans_ptnr, 1000);
+         //setInterval(get_ans_ptnr, 1000);
 
 
     });
